@@ -7,6 +7,7 @@ import { Hero } from "./Hero";
 import { Grid } from  "./Grid"
 import { Feature} from "./Feature";
 import { Testimonial } from "./Testimonial";
+import { RecommendedTours } from "./RecommendedTours";
 
 storyblokInit({
     components: {
@@ -16,6 +17,7 @@ storyblokInit({
         grid: Grid,
         feature: Feature,
         testimonial: Testimonial,
+        recommended_tours: RecommendedTours,
     },
     enableFallbackComponent: true,
 })
