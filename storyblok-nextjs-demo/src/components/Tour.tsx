@@ -1,6 +1,6 @@
 import { renderRichText } from "@storyblok/react/rsc";
 
-export const Tour = (props: any) => {
+export const Tour = (props?: any) => {
   return (
     <main className="container w-full mx-auto px-4 pt-32 pb-16">
       <h1 className="text-3xl md:text-5xl font-bold">{props.blok.name}</h1>
