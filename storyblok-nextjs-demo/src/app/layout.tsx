@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import {storyblokInit, apiPlugin} from "@storyblok/react/rsc";
 import {StoryblokProvider} from "@/components/StoryblokProvider";
+import Link from "next/link";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -42,9 +43,14 @@ export default function RootLayout({
     <StoryblokProvider>
       <html lang="en">
         <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+          className={`${geistSans.variable} ${geistMono.variable} bg-blue-50 antialiased`}
         >
-          <div>Layout</div>
+          <header>
+            <nav className="container w-full flex justify-between mx-auto py-8">
+              <Link href={"/"}>Home</Link>
+              <Link href={"/tours"}>Tours</Link>
+            </nav>
+          </header>
           {children}
         </body>
       </html>
