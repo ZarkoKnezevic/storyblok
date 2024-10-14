@@ -1,14 +1,15 @@
 "use client";
-import { AppStoryblokInit } from "@/utils/storyblok";
+import type {PropsWithChildren } from "react";
+import { storyblokInit } from "@storyblok/react/rsc";
 import { Tour } from "./Tour";
 import { Page } from "./Page";
 import { Hero } from "./Hero";
-import { Grid } from "./Grid";
-import { Feature } from "./Feature";
+import { Grid } from  "./Grid"
+import { Feature} from "./Feature";
 import { Testimonial } from "./Testimonial";
 import { RecommendedTours } from "./RecommendedTours";
 
-AppStoryblokInit({
+storyblokInit({
   components: {
     tour: Tour,
     page: Page,
@@ -19,8 +20,8 @@ AppStoryblokInit({
     recommended_tours: RecommendedTours,
   },
   enableFallbackComponent: true,
-});
+})
 
-export const StoryblokProvider = ({ children }: { children: React.ReactNode }) => {
-  return <>{children}</>;
-};
+export const StoryblokProvider = ({children} : PropsWithChildren) => {
+  return <>{children}</>
+}
