@@ -13,7 +13,7 @@ export const AppStoryblokInit = (options?: {
 }) => {
   if (!storyblokApi) {
     storyblokInit({
-      accessToken: process.env.STORYBLOK_TOKEN as string,
+      accessToken: process.env.STORYBLOK_TOKEN,
       use: [apiPlugin],
       components: options?.components || {},
       enableFallbackComponent: options?.enableFallbackComponent || false,

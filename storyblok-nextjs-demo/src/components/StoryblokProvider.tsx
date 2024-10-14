@@ -1,6 +1,5 @@
 "use client";
-import type { PropsWithChildren } from "react";
-import { AppStoryblokInit } from "@/utils/storyblok"; // Use custom initialization function
+import { AppStoryblokInit } from "@/utils/storyblok";
 import { Tour } from "./Tour";
 import { Page } from "./Page";
 import { Hero } from "./Hero";
@@ -22,6 +21,6 @@ AppStoryblokInit({
   enableFallbackComponent: true,
 });
 
-export const StoryblokProvider = ({ children }: PropsWithChildren) => {
+export const StoryblokProvider = ({ children }: { children: React.ReactNode }) => {
   return <>{children}</>;
 };
