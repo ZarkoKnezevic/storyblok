@@ -5,12 +5,9 @@ import type { NextRequest } from "next/server";
 
 export async function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams;
-  const secret = searchParams.get("secret");
+  const secret = "9d68b1922607e07820a08df3a13f3b6";
   const slug = searchParams.get("slug");
 
-  if (secret !== process.env.SECRET_PREVIEW_TOKEN) {
-    return new Response("Invalid token", { status: 401 });
-  }
   draftMode().enable();
   cookies().set({ name: "secret", value: secret, sameSite: "none", secure: true, maxAge: 60 * 60 });
 
