@@ -1,20 +1,11 @@
-import type {Metadata} from "next";
-import localFont from "next/font/local";
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import "./globals.css";
-import { storyblokInit, apiPlugin} from "@storyblok/react/rsc";
-import {StoryblokProvider} from "@/components/StoryblokProvider";
+import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
+import { StoryblokProvider } from "@/components/StoryblokProvider";
 import Link from "next/link";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -33,20 +24,20 @@ storyblokInit({
   use: [apiPlugin],
   apiOptions: {
     fetch: cachedFetch,
-  }
-})
+  },
+});
 
 export default function RootLayout({
-   children,
- } : Readonly<{ children: React.ReactNode;}>) {
+                                     children,
+                                   }: {
+  children: React.ReactNode;
+}) {
   return (
     <StoryblokProvider>
       <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} bg-blue-50 antialiased`}
-      >
+      <body className={`${inter.className} bg-blue-50`}>
       <header>
-        <nav className="container w-full flex justify-between mx-auto py-8">
+        <nav className="container mx-auto px-4 w-full py-8 flex justify-between">
           <Link href={"/"}>Home</Link>
           <Link href={"/tours"}>Tours</Link>
         </nav>
