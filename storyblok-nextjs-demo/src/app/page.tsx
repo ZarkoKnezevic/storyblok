@@ -14,7 +14,7 @@ const fetchHomePage = async () => {
 const HomePage =  async ()=> {
   const story = await fetchHomePage();
   return (
-    <StoryblokStory story={story} bridgeOptions={[]}/>
+    <StoryblokStory story={story} bridgeOptions={["recommended_tours.tours"]}/>
   );
 };
 
