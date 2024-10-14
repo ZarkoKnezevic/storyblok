@@ -26,13 +26,12 @@ export const AppStoryblokInit = (options?: {
       },
     });
 
-    storyblokApi = getStoryblokApiDefault(); // Initialize Storyblok API client
+    storyblokApi = getStoryblokApiDefault();
   }
 
   return storyblokApi;
 };
 
-// Function to get the Storyblok API client
 export const getStoryblokApi = (): StoryblokClient => {
-  return AppStoryblokInit(); // Initialize before getting the API client
+  return AppStoryblokInit();
 };
