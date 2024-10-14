@@ -8,7 +8,7 @@ export async function GET(request: NextRequest) {
   const secretToken = searchParams.get("secretToken");
   const slug = searchParams.get("slug");
 
-  if (secretToken !== process.env.STORYBLOK_TOKEN) {
+  if (secretToken !== process.env.SECRET_PREVIEW_TOKEN) {
     return new Response("Invalid token", { status: 401 });
   }
   draftMode().enable();
