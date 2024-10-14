@@ -4,7 +4,6 @@ import { redirect } from "next/navigation";
 import type { NextRequest } from "next/server";
 
 export async function GET(request: NextRequest) {
-  // Parse query string parameters
   const searchParams = request.nextUrl.searchParams;
   const secret = searchParams.get("secret");
   const slug = searchParams.get("slug");
@@ -12,8 +11,6 @@ export async function GET(request: NextRequest) {
   if (secret !== process.env.SECRET_PREVIEW_TOKEN) {
     return new Response("Invalid token", { status: 401 });
   }
-
-  // Enable Draft Mode by setting the cookie
   draftMode().enable();
   cookies().set({ name: "secret", value: secret, sameSite: "none", secure: true, maxAge: 60 * 60 });
 
