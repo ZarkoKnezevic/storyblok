@@ -1,11 +1,18 @@
 import { StoryblokComponent, storyblokEditable } from "@storyblok/react/rsc";
+import { SbBlokData } from "@storyblok/react/rsc";
 
-export const Page = (props: any) => {
+interface PageProps {
+  blok: {
+    blocks: SbBlokData[];
+  };
+}
+
+export const Page = ({ blok }: PageProps) => {
   return (
-    <main {...storyblokEditable(props.blok)}>
-      {props.blok.blocks.map((blok: any) => (
+    <main {...storyblokEditable(blok)}>
+      {blok.blocks?.map((blok: SbBlokData) => (
         <StoryblokComponent blok={blok} key={blok._uid} />
       ))}
     </main>
-  )
-}
+  );
+};
